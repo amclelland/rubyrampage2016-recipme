@@ -33,6 +33,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'react-rails'
 gem 'pg'
 gem 'responders'
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+gem 'font-awesome-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

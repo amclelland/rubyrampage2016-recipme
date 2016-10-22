@@ -9,6 +9,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrapper-for-content-outside-of-footer">
+      <%= render 'site/header' %>
+      <%= yield %>
+    </div>
+    <%= render 'site/footer' %>
   </body>
 </html>
