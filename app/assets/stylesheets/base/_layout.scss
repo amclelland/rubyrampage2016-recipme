@@ -11,3 +11,7 @@ html {
 .wrapper-for-content-outside-of-footer {
   min-height: 70%;
 }
+
+.container {
+  @include outer-container(80%);
+}
