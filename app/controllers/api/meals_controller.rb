@@ -21,7 +21,7 @@ module Api
     private
 
     def meal_params
-      params.require(:meal).permit(:id, :name)
+      params.require(:meal).permit(:name)
     end
   end
 end
