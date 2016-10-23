@@ -22,7 +22,7 @@ p {
 }
 
 a {
-  color: #012A36;
+  color: lighten(#012A36, 15%);
   text-decoration: none;
   transition: color $base-duration $base-timing;
 

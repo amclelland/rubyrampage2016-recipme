@@ -11,9 +11,11 @@
   <body>
     <div class="wrapper-for-content-outside-of-footer">
       <%= render 'site/header' %>
-      <% if notice || alert %>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+      <% if notice %>
+        <p class="notice home"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert home"><%= alert %></p>
       <% end %>
 
       <%= yield %>

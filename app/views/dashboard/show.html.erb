@@ -1,0 +1,28 @@
+<h1>Dashboard</h1>
+<p>
+  Welcome to your dashboard! Start by adding your favorite meals to your menu.
+  Then, visit your planner to plan some upcoming meals. After you have finished
+  planning, generate your grocery list. It will aggregate all of the
+  ingredients you need into an easy-to-use shopping list. Check them off as you shop!
+</p>
+
+<%= link_to meals_path do %>
+  <div class="dashboard-card">
+    <%= fa_icon 'cutlery' %>
+    <h2>MEALS</h2>
+  </div>
+<% end %>
+
+<%= link_to '#' do %>
+  <div class="dashboard-card">
+    <%= fa_icon 'calendar' %>
+    <h2>PLANNER</h2>
+  </div>
+<% end %>
+
+<%= link_to '#' do %>
+  <div class="dashboard-card">
+    <%= fa_icon 'list-ul' %>
+    <h2>LIST</h2>
+  </div>
+<% end %>

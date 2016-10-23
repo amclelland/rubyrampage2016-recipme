@@ -18,6 +18,8 @@
 @import 'modules/footer';
 @import 'modules/hero';
 @import 'modules/bullet_points';
+@import 'modules/alerts';
+@import 'modules/dashboard_card';
 
 * {
   margin: 0;
@@ -25,4 +27,8 @@
 
 html, body {
  height: 100%;
+}
+
+html {
+  overflow-x: hidden;
 }

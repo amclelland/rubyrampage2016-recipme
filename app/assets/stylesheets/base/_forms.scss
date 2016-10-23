@@ -69,6 +69,8 @@ textarea {
 [type="radio"] {
   display: inline;
   margin-right: $small-spacing / 2;
+  float: left;
+  margin-top: 5px;
 }
 
 [type="file"] {
@@ -87,4 +89,12 @@ select {
   border-radius: 5px;
   color: white;
   margin-bottom: 2em;
+}
+
+form {
+  max-width: 30%;
+
+  br {
+    display: none;
+  }
 }

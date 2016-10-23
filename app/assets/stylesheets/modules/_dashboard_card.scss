@@ -1,0 +1,26 @@
+.dashboard-card {
+  width: 15em;
+  height: 18em;
+  background-color: #012A36;
+  border-radius: 5px;
+  color: white;
+  position: relative;
+  display: inline-block;
+  margin-right: 5%;
+  margin-top: 2em;
+
+  i {
+    font-size: 90px;
+    padding-top: 0.5em;
+    display: block;
+    text-align: center;
+  }
+
+  h2 {
+    position: absolute;
+    bottom: 0px;
+    font-size: 32px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+}

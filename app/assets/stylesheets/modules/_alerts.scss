@@ -1,0 +1,23 @@
+.notice {
+  background-color: #7EBDC2;
+  padding: 0.75em;
+  border-radius: 5px;
+  margin-top: 1em;
+
+  &.home {
+    max-width: 90%;
+    margin: 1em auto;
+  }
+}
+
+.alert {
+  background-color: #BB4430;
+  padding: 0.75em;
+  border-radius: 5px;
+  margin-top: 1em;
+
+  &.home {
+    max-width: 90%;
+    margin: 1em auto;
+  }
+}

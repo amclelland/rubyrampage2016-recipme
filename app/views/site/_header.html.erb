@@ -6,31 +6,28 @@
     <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
-        <li class="nav-link">
-          <%= link_to 'Sign Up', new_user_registration_path %>
-        </li>
-        <li class="nav-link">
-          <%= link_to 'Log In', new_user_session_path %>
-        </li>
+        <% unless user_signed_in? %>
+          <li class="nav-link">
+            <%= link_to 'Sign Up', new_user_registration_path %>
+          </li>
+          <li class="nav-link">
+            <%= link_to 'Log In', new_user_session_path %>
+          </li>
+        <% else %>
+          <li class="nav-link">
+            <%= link_to 'Dashboard', user_root_path %>
+          </li>
 
-        <li id="js-navigation-more" class="nav-link more"><a href="javascript:void(0)">More</a>
-          <ul class="submenu">
-            <li><a href="javascript:void(0)">Submenu Item</a></li>
-            <li><a href="javascript:void(0)">Another Item</a></li>
-            <li class="more"><a href="javascript:void(0)">Item with submenu</a>
-              <ul class="submenu">
-                <li><a href="javascript:void(0)">Sub-submenu Item</a></li>
-                <li><a href="javascript:void(0)">Another Item</a></li>
-              </ul>
-            </li>
-            <li class="more"><a href="javascript:void(0)">Another submenu</a>
-              <ul class="submenu">
-                <li><a href="javascript:void(0)">Sub-submenu</a></li>
-                <li><a href="javascript:void(0)">An Item</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
+          <li id="js-navigation-more" class="nav-link more"><a href="javascript:void(0)">Profile</a>
+            <ul class="submenu">
+              <!-- <li><a href="javascript:void(0)">Meals</a></li>
+              <li><a href="javascript:void(0)">Planner</a></li>
+              <li><a href="javascript:void(0)">Grocery List</a></li> -->
+              <li><%= link_to 'Settings', edit_user_registration_path %></li>
+              <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% end %>
       </ul>
     </nav>
   </div>
