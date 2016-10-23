@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :meals
   has_many :planned_meals
+  has_many :items
+
 end

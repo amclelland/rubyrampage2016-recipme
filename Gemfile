@@ -38,6 +38,7 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'simple_form'
 gem 'breadcrumbs_on_rails'
+gem 'ruby-units'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
