@@ -12,7 +12,11 @@
   <% @meals.each do |meal| %>
     <%= link_to meal_path(meal) do %>
       <div class="meal-card">
-        <%= image_tag meal.image %>
+        <% if meal.image.present? %>
+          <%= image_tag meal.image %>
+        <% else %>
+          <%= fa_icon 'cutlery' %>
+        <% end %>
         <h2><%= meal.name %></h2>
       </div>
     <% end %>

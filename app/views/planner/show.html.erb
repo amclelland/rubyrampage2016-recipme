@@ -32,7 +32,11 @@
   <div class="planned-meal-list">
     <% @planned_meals.each do |planned_meal| %>
       <div class="meal-card">
-        <%= image_tag planned_meal.image %>
+        <% if planned_meal.image.present? %>
+          <%= image_tag planned_meal.image %>
+        <% else %>
+          <%= fa_icon 'cutlery' %>
+        <% end %>
         <%= link_to planned_meal_path(planned_meal), method: :delete, data: { confirm: 'Are you sure you want to remove this planned meal?' } do %>
           <%= fa_icon 'times', class: 'delete' %>
         <% end %>
