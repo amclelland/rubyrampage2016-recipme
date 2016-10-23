@@ -2,7 +2,7 @@ class Meal < ApplicationRecord
   belongs_to :user
   has_many :ingredients, dependent: :destroy
 
-  validates :name, :image, presence: true
+  validates :name, presence: true
 
   def self.by_recent
     order(created_at: :desc)
