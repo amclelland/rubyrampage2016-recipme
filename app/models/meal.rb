@@ -1,7 +1,6 @@
 class Meal < ApplicationRecord
   belongs_to :user
-  has_many :ingredients
-  has_many :planned_meals
+  has_many :ingredients, dependent: :destroy
 
   validates :name, :image, presence: true
 
