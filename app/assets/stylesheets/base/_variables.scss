@@ -44,3 +44,13 @@ $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $l
 // Animations
 $base-duration: 150ms;
 $base-timing: ease;
+
+//Breakpoints
+$gt-wide       : new-breakpoint(min-width 72em 12);
+$gt-desktop    : new-breakpoint(min-width 60em 12);
+$gt-sm-desktop : new-breakpoint(min-width 54em 12);
+$gt-tablet     : new-breakpoint(min-width 48em 12);
+$lt-tablet     : new-breakpoint(min-width 12 48em);
+$gt-sm-tablet  : new-breakpoint(min-width 37.5em 12);
+$gt-mobile     : new-breakpoint(min-width 30em);
+$lt-mobile     : new-breakpoint(min-width 22em 12);

@@ -16,14 +16,14 @@
 <div class="meal-main">
   <h2>Ingredients</h2>
 
+  <%= link_to new_meal_ingredient_path(@meal), class: 'btn btn-secondary' do %>
+    <%= fa_icon 'plus-circle' %>
+    <span>New Ingredient</span>
+  <% end %>
+
   <% if @meal.ingredients.empty? %>
     <p>No ingredients yet</p>
   <% else %>
     <%= render 'ingredients_table', ingredients: @meal.ingredients %>
-  <% end %>
-
-  <%= link_to new_meal_ingredient_path(@meal), class: 'btn btn-secondary' do %>
-    <%= fa_icon 'plus-circle' %>
-    <span>New Ingredient</span>
   <% end %>
 </div>

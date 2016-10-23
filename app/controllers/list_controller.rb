@@ -3,15 +3,12 @@ class ListController < ApplicationController
     add_breadcrumb 'Dashboard', user_root_path
     add_breadcrumb 'List'
 
-    @items = current_user.items
+    @items = current_user.items.order(:purchased, :name)
   end
 
   def generate
     if current_user.items.destroy_all && ListGenerator.generate(current_user)
-      @items = current_user.items
-      add_breadcrumb 'Dashboard', user_root_path
-      add_breadcrumb 'List'
-
+      flash[:notice] = 'Successfully generated shopping list'
       redirect_to list_path
     else
       flash[:error] = 'Sorry, something went wrong when generating your list. Error code: 3224'

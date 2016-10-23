@@ -1,24 +1,25 @@
 <%= render 'shared/breadcrumbs' %>
 
-<table class="table-minimal">
+<% content_for(:body_attributes) do %>
+  data-turbolinks="false"
+<% end %>
+
+<table class="table-minimal list-table">
   <thead>
     <tr>
       <th class="name">Name</th>
       <th class="quantity">Amount</th>
-      <th class="action"></th>
-      <th class="action"></th>
+      <th class="switch"></th>
     </tr>
   </thead>
   <tbody>
     <% @items.each do |item| %>
-      <tr>
+      <tr id="row_<%= item.id %>">
         <td><%= item.name %></td>
         <td class="quantity"><%= item.amount %></td>
-        <td class="action">
-        </td>
-        <td class="action">
+        <td class="switch">
           <label class="label-switch">
-            <input type="checkbox" />
+            <input id="switch_<%=item.id%>" checked type="checkbox" data-id="<%=item.id%>" data-initial="<%=item.purchased%>">
             <div class="checkbox"></div>
           </label>
         </td>
@@ -26,3 +27,67 @@
     <% end %>
   </tbody>
 </table>
+
+<script>
+	$(function() {
+
+		$("input[id^='switch_']").click(function() {
+	  	id = $(this).data("id");
+	  	el = $("#row_"+id);
+
+	  	if($(this).is(':checked')){
+	  		light(el, id);
+	  		purchase(el, id, false);
+	  	}else{
+	  		dim(el, id);
+	  		purchase(el, id, true);
+	  	}
+		});
+
+		darkenPurchased();
+
+		function darkenPurchased() {
+      if (window.matchMedia('(max-width: 800px)').matches) {
+        $('.label-switch').switchClass( "label-switch", "label-switch-lg");
+      }
+
+			switches = $("[data-initial='true']");
+			switches.click();
+
+			$.each(switches, function(index, item) {
+				getRow($(item)).css("background-color", "DimGray");
+			});
+		}
+
+		function purchase(el, id, status) {
+			$.ajax({
+		    url: "/api/items/"+id,
+		    type: 'PUT',
+		    data: { status: status },
+		    error: function(result) {
+		    	alert("Uh oh, something went wrong! Try reloading this page. Error code: 8892");
+		    },
+        success: function(result) {
+          if(status == true){
+            $('.list-table').append(el);
+          }else{
+            $('.list-table').prepend(el);
+          }
+        }
+			});
+		}
+
+		function getRow(box) {
+			id = box.data("id");
+	  	return $("#row_"+id);
+		}
+
+		function dim(el, id) {
+			el.css("background-color", "DimGray");
+		}
+
+		function light(el, id) {
+			el.css("background-color", "transparent");
+		}
+	});
+</script>

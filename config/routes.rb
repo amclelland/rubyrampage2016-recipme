@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   resources :planned_meals, only: [:new, :create, :destroy]
 
+  namespace :api do
+    resources :items, only: [:update]
+  end
+
   # namespace :api do
   #   resources :meals, only: [:index, :create, :destroy, :update]
   # end
