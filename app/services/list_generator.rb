@@ -28,7 +28,7 @@ class ListGenerator
     # end
 
     uniq_names.each do |name|
-      with_name = ingredients.select { |ingredient| ingredient.name.downcase == name }
+      with_name = ingredients.select { |ingredient| ingredient.name.downcase.singularize == name }
 
       uniq_units = with_name.map(&:unit).uniq
       final = uniq_units.map do |unit|
@@ -54,7 +54,7 @@ class ListGenerator
   end
 
   def downcased_names
-    ingredients.map { |i| i.name.downcase }
+    ingredients.map { |i| i.name.downcase.singularize }
   end
 
   def ingredients
