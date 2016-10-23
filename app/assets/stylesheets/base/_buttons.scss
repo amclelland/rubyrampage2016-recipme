@@ -26,6 +26,20 @@
     display: block;
   }
 
+  &.btn-secondary {
+    background-color: #012A36;
+
+    &:hover,
+    &:focus {
+      background-color: lighten(#012A36, 10%);
+      color: #fff;
+    }
+  }
+
+  i {
+    padding-right: 10px;
+  }
+
   &:hover,
   &:focus {
     background-color: shade(#F44708, 20%);
@@ -37,7 +51,7 @@
     opacity: 0.5;
 
     &:hover {
-      background-color: $action-color;
+      background-color: #F44708;
     }
   }
 }

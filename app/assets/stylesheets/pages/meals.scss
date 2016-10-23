@@ -14,4 +14,5 @@
 
 .meal-main {
   @include span-columns(9.5);
+  @include omega;
 }

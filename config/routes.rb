@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to: 'site#index'
   get '/dashboard', to: 'dashboard#show', as: 'user_root'
 
-  resources :meals
+  resources :meals do
+    resources :ingredients, except: [:index]
+  end
 
   # namespace :api do
   #   resources :meals, only: [:index, :create, :destroy, :update]

@@ -1,0 +1,9 @@
+<%= render 'shared/breadcrumbs' %>
+
+<%= simple_form_for [@meal, @ingredient] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :quantity %>
+  <%= f.input :unit, label: 'Quantity Unit', collection: @units %>
+
+  <%= f.submit %>
+<% end %>
