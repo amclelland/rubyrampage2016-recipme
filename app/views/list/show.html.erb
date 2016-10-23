@@ -1,0 +1,28 @@
+<%= render 'shared/breadcrumbs' %>
+
+<table class="table-minimal">
+  <thead>
+    <tr>
+      <th class="name">Name</th>
+      <th class="quantity">Amount</th>
+      <th class="action"></th>
+      <th class="action"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td class="quantity"><%= item.amount %></td>
+        <td class="action">
+        </td>
+        <td class="action">
+          <label class="label-switch">
+            <input type="checkbox" />
+            <div class="checkbox"></div>
+          </label>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

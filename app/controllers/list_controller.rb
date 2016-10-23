@@ -1,9 +1,22 @@
 class ListController < ApplicationController
   def show
+    add_breadcrumb 'Dashboard', user_root_path
+    add_breadcrumb 'List'
+
+    @items = current_user.items
   end
 
   def generate
-    ListGenerator.generate(current_user)
+    if current_user.items.destroy_all && ListGenerator.generate(current_user)
+      @items = current_user.items
+      add_breadcrumb 'Dashboard', user_root_path
+      add_breadcrumb 'List'
+
+      redirect_to list_path
+    else
+      flash[:error] = 'Sorry, something went wrong when generating your list. Error code: 3224'
+      redirect_to planner_path
+    end
   end
 
   private

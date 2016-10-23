@@ -28,10 +28,23 @@ class ListGenerator
     # end
 
     uniq_names.each do |name|
-      ingredients_with_name = ingredients.select { |ingredient| ingredient.name.downcase == name }
+      with_name = ingredients.select { |ingredient| ingredient.name.downcase == name }
 
-      binding.pry
+      uniq_units = with_name.map(&:unit).uniq
+      final = uniq_units.map do |unit|
+        strings = with_name.select { |ing| ing.unit == unit }.map(&:to_s)
+        units = strings.map { |string| Unit.new(string) }
+
+        units = units.inject(:+)
+      end
+
+      # strings = with_name.map(&:to_s)
+      # units = strings.map { |string| Unit.new(string) }
+      amount = final.map(&:to_s).join(', ')
+      user.items.create(name: name.titleize, amount: amount)
     end
+
+    return true
   end
 
   private
