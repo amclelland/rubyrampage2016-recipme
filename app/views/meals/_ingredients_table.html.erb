@@ -1,8 +1,8 @@
 <table class="table-minimal">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Quantity</th>
+      <th class="name">Name</th>
+      <th class="quantity">Quantity</th>
       <th>Unit</th>
       <th class="action"></th>
       <th class="action"></th>
@@ -12,7 +12,7 @@
     <% ingredients.each do |ingredient| %>
       <tr>
         <td><%= ingredient.name %></td>
-        <td><%= ingredient.quantity %></td>
+        <td class="quantity"><%= ingredient.quantity %></td>
         <td><%= ingredient.unit %></td>
         <td class="action">
           <%= link_to edit_meal_ingredient_path(ingredient.meal, ingredient) do %>

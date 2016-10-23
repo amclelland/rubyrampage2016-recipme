@@ -52,6 +52,14 @@ th {
     width: 1px;
   }
 
+  .name {
+    width: 50%;
+  }
+
+  .quantity {
+    text-align: right;
+  }
+
   tbody {
     tr:hover > td, tr:hover > th {
       background-color: $table-hover-background;
