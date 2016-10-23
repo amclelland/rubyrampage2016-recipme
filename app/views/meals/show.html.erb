@@ -1,0 +1,18 @@
+<%= render 'shared/breadcrumbs' %>
+
+<div class="meal-sidebar">
+  <div class="meal-card">
+    <%= image_tag @meal.image %>
+    <h2><%= @meal.name %></h2>
+  </div>
+
+  <div class="links">
+    <%= link_to('Recipe Link', @meal.recipe, target: '_blank') if @meal.recipe.present? %>
+    <%= link_to 'Edit This Meal', edit_meal_path(@meal) %>
+    <%= link_to 'Delete This Meal', meal_path(@meal), method: :delete, data: { confirm: 'Are you sure you want to delete this meal?' } %>
+  </div>
+</div>
+
+<div class="meal-main">
+
+</div>

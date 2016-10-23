@@ -78,6 +78,11 @@ textarea {
   width: 100%;
 }
 
+[type="submit"] {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 select {
   margin-bottom: $small-spacing;
   width: 100%;

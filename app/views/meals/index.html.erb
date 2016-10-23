@@ -1,1 +1,20 @@
-<%= react_component 'Main' %>
+<%#= react_component 'Main' %>
+<%= render 'shared/breadcrumbs' %>
+
+<div class="meal-list">
+  <%= link_to new_meal_path do %>
+    <div class="meal-card">
+      <%= fa_icon 'plus-circle' %>
+      <h2>New Meal</h2>
+    </div>
+  <% end %>
+
+  <% @meals.each do |meal| %>
+    <%= link_to meal_path(meal) do %>
+      <div class="meal-card">
+        <%= image_tag meal.image %>
+        <h2><%= meal.name %></h2>
+      </div>
+    <% end %>
+  <% end %>
+</div>

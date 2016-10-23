@@ -1,4 +1,4 @@
-.dashboard-card {
+.meal-card {
   width: 15em;
   height: 18em;
   background-color: #012A36;
@@ -6,8 +6,6 @@
   color: white;
   position: relative;
   display: inline-block;
-  margin-right: 5%;
-  margin-top: 2em;
 
   i {
     font-size: 90px;
@@ -16,11 +14,28 @@
     text-align: center;
   }
 
+  img {
+    height: 13.5em;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
   h2 {
     position: absolute;
     bottom: 0px;
-    font-size: 32px;
+    font-size: 30px;
     width: 100%;
     text-align: center;
+    // margin-bottom: 0;
+  }
+}
+
+.meal-list {
+  a {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 1em;
+    margin-bottom: 1em;
   }
 }

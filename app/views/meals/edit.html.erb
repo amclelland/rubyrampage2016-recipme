@@ -1,0 +1,9 @@
+<%= render 'shared/breadcrumbs' %>
+
+<%= simple_form_for @meal do |f| %>
+  <%= f.input :name %>
+  <%= f.input :image, label: 'Image URL' %>
+  <%= f.input :recipe, label: 'Recipe URL' %>
+
+  <%= f.submit %>
+<% end %>

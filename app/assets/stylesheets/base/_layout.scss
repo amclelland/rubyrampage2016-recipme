@@ -16,3 +16,7 @@ html {
   @include outer-container(80%);
   margin-top: 2em;
 }
+
+.breadcrumbs {
+  margin-bottom: 2em;
+}
