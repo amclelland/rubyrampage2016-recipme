@@ -1,0 +1,43 @@
+<%= render 'shared/breadcrumbs' %>
+
+<div class="planner-sidebar">
+  <p>
+    Welcome to your planner! Here you can decide which meals you want to prepare
+    and generate a grocery list. Select from your menu of meals, and add a meal
+    multiple times if you plan on making it several times. The shopping list will
+    aggregate all of your ingredients together.
+  </p>
+
+  <% unless current_user.meals.count == 0 %>
+    <%= link_to new_planned_meal_path, class: 'btn btn-secondary' do %>
+      <%= fa_icon 'plus-circle' %>
+      <span>Add Planned Meal</span>
+    <% end %>
+  <% else %>
+    <p>
+      You don't have any meals yet!
+      <%= link_to 'Head on over to your menu', meals_path %>
+       to add some tasty recipes
+    </p>
+  <% end %>
+
+  <% if @planned_meals.present? %>
+    <%= link_to 'Generate Grocery List', '#', class: 'btn' %>
+  <% end %>
+</div>
+
+<div class="planner-main">
+  <h2>Planned Meals</h2>
+
+  <div class="planned-meal-list">
+    <% @planned_meals.each do |planned_meal| %>
+      <div class="meal-card">
+        <%= image_tag planned_meal.image %>
+        <%= link_to planned_meal_path(planned_meal), method: :delete, data: { confirm: 'Are you sure you want to remove this planned meal?' } do %>
+          <%= fa_icon 'times', class: 'delete' %>
+        <% end %>
+        <h2><%= planned_meal.name %></h2>
+      </div>
+    <% end %>
+  </div>
+</div>

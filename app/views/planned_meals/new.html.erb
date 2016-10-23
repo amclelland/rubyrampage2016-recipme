@@ -1,0 +1,7 @@
+<%= render 'shared/breadcrumbs' %>
+
+<%= simple_form_for @planned_meal do |f| %>
+  <%= f.association :meal, collection: @meals, label_method: :name %>
+
+  <%= f.submit 'Add Planned Meal' %>
+<% end %>
