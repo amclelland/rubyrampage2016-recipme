@@ -32,7 +32,7 @@ class MealsController < ApplicationController
 
     if @meal.save
       flash[:notice] = 'Successfully created new meal'
-      redirect_to meals_path
+      redirect_to meal_path(@meal)
     else
       flash.now[:alert] = 'Something went wrong!'
       render :new
